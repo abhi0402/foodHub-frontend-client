@@ -128,7 +128,17 @@ export const editItem = (itemData, itemId) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err.response);
+      console.log(err.response.data);
+      if (err.response) {
+        dispatch({
+          type: SET_ERROR_ITEM,
+          payload: err.response.data,
+        });
+      } else {
+        dispatch({
+          type: SERVER_ERROR,
+        });
+      }
     });
 };
 

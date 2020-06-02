@@ -82,6 +82,7 @@ export default function CustomizedInputBase(props) {
     setAddress(value);
     const results = await geocodeByAddress(value);
     const latlng = await getLatLng(results[0]);
+    if (latlng) localStorage.setItem("latlng", `${latlng.lat}, ${latlng.lng}`);
     fetchRestByLocation(latlng);
   };
 

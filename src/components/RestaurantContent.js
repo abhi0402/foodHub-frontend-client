@@ -8,7 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import RestaurantCard from "./RestaurantCard";
 
 const RestaurantContent = () => {
-  console.log("rendering restCont");
   const { restaurants } = useSelector((state) => state.data);
   const restaurantArray = restaurants.restaurants;
 

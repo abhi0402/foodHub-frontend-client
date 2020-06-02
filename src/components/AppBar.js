@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //material-ui
 import { makeStyles } from "@material-ui/core/styles";
@@ -73,7 +73,6 @@ export default function AppBarPrimary() {
               >
                 Logout
               </Button>
-              <Redirect to="/seller/dashboard" />
             </div>
           ) : (
             <div className={classes.buttons}>

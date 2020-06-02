@@ -18,7 +18,6 @@ const useStyles = makeStyles({
 });
 
 export default function RestaurantCard(props) {
-  console.log("rest card rendering");
   const {
     name,
     tags,

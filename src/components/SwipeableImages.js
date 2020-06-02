@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SwipeableImages(props) {
-  console.log("swipeable rendering");
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
