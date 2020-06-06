@@ -29,7 +29,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./util/scrollToTop";
 
 //restrict routes
-import { AuthRoute } from "./util/route";
+import { AuthRoute, SellerRoute, UserRoute } from "./util/route";
 
 //pages
 import home from "./pages/home";
@@ -40,6 +40,7 @@ import addRestaurant from "./pages/addRestaurant";
 import restaurant from "./pages/restaurant";
 import sellerDash from "./pages/sellerDashboard";
 import cart from "./pages/cart";
+import orders from "./pages/orders";
 
 const theme = createMuiTheme(themeFile);
 
@@ -70,9 +71,15 @@ function App() {
             <AuthRoute exact path="/login" component={login} />
             <AuthRoute exact path="/register" component={signup} />
             <AuthRoute exact path="/addrestaurant" component={addRestaurant} />
-            <Route exact path="/order/:restName" component={restaurant} />
-            <Route exact path="/seller/dashboard" component={sellerDash} />
-            <Route exact path="/cart" component={cart} />
+            <UserRoute exact path="/order/:restName" component={restaurant} />
+            <SellerRoute
+              exact
+              path="/seller/dashboard"
+              component={sellerDash}
+            />
+            <UserRoute exact path="/cart" component={cart} />
+            <UserRoute exact path="/orders" component={orders} />
+            <SellerRoute exact path="/seller/orders" component={orders} />
             <Route component={error404} />
           </Switch>
           <Footer />

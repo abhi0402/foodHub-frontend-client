@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -55,22 +55,9 @@ export default function ItemCard(props) {
   const classes = useStyles();
   const { title, imageUrl, description, price, _id } = props;
   const imageUrlSplit = imageUrl.split("\\");
-  const finalImageUrl = `http://localhost:3002/${imageUrlSplit[0]}/${imageUrlSplit[1]}`; //3002 - server port
+  const finalImageUrl = `${process.env.REACT_APP_SERVER_URL}/${imageUrlSplit[0]}/${imageUrlSplit[1]}`; //3002 - server port
 
   const dispatch = useDispatch();
-  const { errors } = useSelector((state) => state.UI);
-
-  useEffect(() => {
-    if (errors) {
-      setErrorsState(errors);
-    }
-    if (errors == null) {
-      setErrorsNull(true);
-    }
-  }, [errors]);
-
-  const [errorsState, setErrorsState] = useState({});
-  const [errorsNull, setErrorsNull] = useState(false);
 
   const {
     authenticated,
@@ -107,12 +94,7 @@ export default function ItemCard(props) {
     itemData.append("description", inputs.description);
     itemData.append("price", inputs.price);
     dispatch(editItem(itemData, _id)); // eslint-disable-next-line
-    if (
-      Object.keys(errorsState).length !== 0 &&
-      !errorsState.message.includes("Upload an") &&
-      errorsNull
-    )
-      handleClose();
+    handleClose();
   };
 
   const openEdit = () => {

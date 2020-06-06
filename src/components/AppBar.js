@@ -54,7 +54,7 @@ export default function AppBarPrimary() {
       <Toolbar>
         <Link to="/" className={classes.title}>
           <Typography variant="h6" noWrap>
-            <span className={classes.name}>GrubHub</span>
+            <span className={classes.name}>FoodHub</span>
           </Typography>
         </Link>
         {authenticated ? (

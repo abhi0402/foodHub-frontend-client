@@ -31,18 +31,8 @@ const useStyles = makeStyles((theme) => ({
 export default function SellerDashboard() {
   const classes = useStyles();
   const sellerData = useSelector((state) => state.auth);
-  const { errors } = useSelector((state) => state.UI);
   const { items } = sellerData;
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (errors) {
-      setErrorsState(errors);
-    }
-    if (errors == null) {
-      setErrorsNull(true);
-    }
-  }, [errors]);
 
   useEffect(() => {
     if (items) {
@@ -55,9 +45,6 @@ export default function SellerDashboard() {
   const [filteredItemsState, setFilteredItemsState] = useState(
     items ? [] : null
   );
-
-  const [errorsState, setErrorsState] = useState({});
-  const [errorsNull, setErrorsNull] = useState(false);
   const [open, setOpen] = useState(false);
   const [image, setImage] = useState({});
   const { inputs, handleInputChange } = useForm({
@@ -89,12 +76,7 @@ export default function SellerDashboard() {
     itemData.append("description", inputs.description);
     itemData.append("price", inputs.price);
     dispatch(addItem(itemData)); // eslint-disable-next-line
-    if (
-      Object.keys(errorsState).length !== 0 &&
-      !errorsState.message.includes("Upload an") &&
-      errorsNull
-    )
-      handleClose();
+    handleClose();
   };
 
   const handleSearch = (value) => {

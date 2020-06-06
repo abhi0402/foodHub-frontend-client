@@ -389,7 +389,7 @@ export default function AddRestaurant() {
                     className={classes.small}
                     style={{ marginLeft: "260px" }}
                   >
-                    Partner with GrubHub and scale your business
+                    Partner with FoodHub and scale your business
                   </small>
                 </form>
               </Grid>

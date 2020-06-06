@@ -102,10 +102,17 @@ export default function CustomizedInputBase(props) {
     };
     axios
       .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=AIzaSyAp9YoqMCNuGXvbZVFHdqCbyDHrvXDf5kM`
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
       )
       .then((result) => {
         console.log(result.data);
+        if (result.data.results[0].formatted_address === "")
+          localStorage.removeItem("location");
+        else
+          localStorage.setItem(
+            "location",
+            result.data.results[0].formatted_address
+          );
         setAddress(result.data.results[0].formatted_address);
         fetchRestByLocation(latlng);
       })

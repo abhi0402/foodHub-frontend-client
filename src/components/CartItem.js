@@ -47,7 +47,7 @@ export default function CartItem(props) {
     itemId: { title, price, description, imageUrl, _id },
   } = props;
   const imageUrlSplit = imageUrl.split("\\");
-  const finalImageUrl = `http://localhost:3002/${imageUrlSplit[0]}/${imageUrlSplit[1]}`;
+  const finalImageUrl = `${process.env.REACT_APP_SERVER_URL}/${imageUrlSplit[0]}/${imageUrlSplit[1]}`;
 
   const dispatch = useDispatch();
 
@@ -73,7 +73,7 @@ export default function CartItem(props) {
     <>
       <Card className={classes.root} variant="outlined">
         <div className={classes.imgCover}>
-          <img src={finalImageUrl} height="184" width="220" alt="Item" />
+          <img src={finalImageUrl} height="184" width="180" alt="Item" />
         </div>
 
         <div className={classes.details}>

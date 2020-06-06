@@ -78,7 +78,7 @@ export default function Footer() {
         ) : (
           <>
             <Typography variant="h4" component="p">
-              GrubHub for Business
+              FoodHub for Business
             </Typography>
             <Typography variant="body1" component="p">
               Get more out of your business, without losing focus on what is
@@ -93,10 +93,10 @@ export default function Footer() {
       </Grid>
       <Grid item xs={12} sm={3} className={classes.innerCont}>
         <Typography variant="h5" component="p">
-          GrubHub NewsLetter
+          FoodHub NewsLetter
         </Typography>
         <Typography variant="body1" component="p" style={{ marginBottom: 28 }}>
-          Stay updated with new offers from GrubHub
+          Stay updated with new offers from FoodHub
         </Typography>
         <TextField label="Your Email address" variant="outlined" />
         <Button className={classes.buttonStyleTwo}>SEND</Button>
@@ -106,7 +106,7 @@ export default function Footer() {
           Resources/Stack Used
         </Typography>
         <Typography variant="body1" component="p" style={{ marginBottom: 28 }}>
-          - React Material UI
+          - React Material UI Redux
           <br />
           - NodeJs <br />
           - Express <br />
